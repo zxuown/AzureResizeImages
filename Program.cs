@@ -1,6 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["ApplicationInsights:InstrumentationKey"]);
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
